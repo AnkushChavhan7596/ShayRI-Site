@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Panal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./css/userpanal.css">
+</head>
+
+<body>
+    <section class="main-container">
+        <div class="sidebar">
+            <div class="logo-container">
+                <!-- <div class="logo-container__logo">
+                    <img src="./Images/logo.png" alt="logo">
+                </div> -->
+                <div class="logo-container__logoname">
+                    <a href="/"><h2>ShayRI</h2></a>
+                </div>
+            </div>
+
+            <div class="sidebar-links-container">
+                <ul>
+                    <li><a href="/"><span class="link-icons"><img src="./images/house.png" alt=""></span><span class="name">Home</span></a></li>
+                    <li><a href="/userPanal"><span class="link-icons"><img src="./images/admin.png" alt=""></span><span class="name">User Panal</span></a></li>
+                    <li><a href="/profile_details"><span class="link-icons"><img src="./images/profile.png" alt=""></span><span class="name">Profile </span></a></li>
+                    <li><a href="/blogs"><span class="link-icons"><img src="./images/createPost.png" alt=""></span><span class="name">Create Blog</span></a></li>
+                    <!-- <li><a href="#"><span class="link-icons"><img src="./images/comments.png" alt=""></span><span class="name">Comments</span></a></li> -->
+                    <li><a href="/edit_profile"><span class="link-icons"><img src="./images/edit.png" alt=""></span><span class="name">Edit Profile</span></a></li>
+                    <li><a href="#"><span class="link-icons"><img src="./images/rating.png" alt=""></span><span class="name">Feedback</span></a></li>
+                </ul>
+            </div>
+            
+            <div class="logout-btn-container">
+                <a href="/logout">Logout</a>
+            </div>
+        </div>
+
+
+        <div class="main-panal">
+               <nav class="navbar">
+                     <div class="hello-heading">
+                         <h2>
+                             Hello ,<br/> <span class="username"><%= user.full_name %></span>
+                         </h2>
+                     </div>
+
+                     <div class="profile-pic">
+                         <img src="./images/profile.png" alt="Profile">
+                     </div>
+
+                     <div class="hambergur">
+                         <div class="bar bar1"></div>
+                         <div class="bar bar2"></div>
+                         <div class="bar bar3"></div>
+                     </div>
+               </nav>
+
+                <div class="posts-container">
+                    <% if(blogs.length == 0){ %>
+                        <h2 class="no__post__yet">No posts yet 😞</h2>
+                    <% } %>
+            
+                    <% for(let i=0; i<blogs.length; i++){ %>
+                        
+                        <% if(blogs[i].userID === currentUserID){ %>
+
+                            <div class="post-card">
+                                    <div class="likes">
+                                        <img src="./images/heart.png"> <p><%= blogs[i].likeCount %></p>
+                                    </div>
+                                    <div class="title">
+                                            <a href="#"><%= blogs[i].blog %></a>
+                                    </div>
+                                    <div class="diff-options">
+                                        <div class="opts">
+                                            <a href="/update_blog/<%= blogs[i].id %>"><img src="./images/research.png" alt=""></a>
+                                        </div>
+                                        <div class="opts">
+                                            <a href="/comments/<%= blogs[i].id %>"><img src="./images/eye.png" alt=""></a>
+                                        </div>
+                                        <div class="opts">
+                                            <a href="/delete_blog/<%= blogs[i].id %>"><img src="./images/trash.png" alt=""></a>
+                                        </div>
+                                    </div>
+                            </div>
+                       <% } %>
+                    <% } %>
+
+
+                </div>   
+
+         </div>
+    </section>
+    
+    <div class="overlay"></div>
+
+    <script>
+        const hambergurBtn = document.querySelector(".hambergur");
+        const bars = document.querySelectorAll(".bar");
+        const sidebar = document.querySelector(".sidebar");
+        const overlay = document.querySelector(".overlay");
+
+        hambergurBtn.addEventListener("click", ()=>{
+            bars.forEach((bar)=>{
+                bar.classList.toggle("active");
+            });
+
+            sidebar.classList.toggle("show-sidebar");
+            overlay.classList.toggle("show-overlay");
+        });
+        
+
+    </script>
+
+</body>
+</html>

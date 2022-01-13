@@ -1,0 +1,21 @@
+<nav class="navbar">
+    <div class="logo">
+        <a href="#">Blog AK</a>
+    </div>
+
+    <div class="menu__container">
+        <ul class="menu-links">
+            <li><a href="/" class="active">Home</a></li>
+            <li><a href="#">Userpanal</a></li>
+            <li><a href="#">Contact</a></li>
+           <%if(login){ %>
+            <li><a href="/logout">Logout</a></li>
+            <% } %>
+
+            <%if(!login){ %>
+                <li><a href="/login">Login</a></li>
+                <li><a href="/register">Register</a></li>
+            <% } %>
+        </ul>
+    </div>
+</nav>

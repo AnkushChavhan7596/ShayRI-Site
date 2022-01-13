@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="./css/register.css">
+</head>
+<body>
+
+    <div class="register__wrapper">
+        <h2>Register</h2>
+
+        <form action="/register" method="POST">
+                <div class="input__field">
+                    <label for="#">Full Name : </label>
+                    <input type="text" placeholder="Full Name" name="full_name">
+                </div>
+
+                <div class="input__field">
+                    <label for="#">Email : </label>
+                    <input type="email" placeholder="Enter email" name="email">
+                </div>
+
+                <div class="input__field">
+                    <label for="#">Phone No : </label>
+                    <input type="tel" placeholder="Enter mobile number" name="mobile">
+                </div>
+
+                <div class="input__field">
+                    <label for="#">Picture : </label>
+                    <input type="file" placeholder="Enter mobile number" name="image" enctype="multipart/form-data">
+                </div>
+
+
+                <div class="input__field">
+                    <label for="#">Password : </label>
+                    <input type="password" placeholder="Enter password" name="password">
+                </div>
+
+
+                <div class="input__field">
+                    <label for="#">Confirm Password : </label>
+                    <input type="password" placeholder="Confirm password" name="cpassword">
+                </div>
+
+                <div class="button__cont">
+                    <button type="submit">Register</button>
+                </div>
+        </form>
+
+        <p class="bottom_txt">Already have an account ? <a href="/login">Login</a></p>
+    </div>
+
+    <script>
+
+    </script>
+    
+</body>
+</html>
