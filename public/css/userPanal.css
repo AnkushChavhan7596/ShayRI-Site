@@ -13,6 +13,8 @@
 }
 
 
+
+
 /* -------------sidebar------------ */
 .sidebar{
     position: fixed;
@@ -320,7 +322,12 @@
     display: none;
 }
 
-
+.no__post__yet{
+    color: black !important;
+    margin-top: 100px !important;
+    text-align: center;
+    font-size: 25px !important;
+}
 
 
 
@@ -443,6 +450,7 @@
 
     .username{
         font-weight: 600;
+        font-size: 16px;
     }
 
     .main-panal .navbar .profile-pic{

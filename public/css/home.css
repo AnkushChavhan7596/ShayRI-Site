@@ -55,7 +55,7 @@
 
 
 .logo{
-    flex-basis: 40%;
+    flex-basis: 30%;
 }
 
 .logo a{
@@ -66,7 +66,7 @@
 
 
 .menu__container{
-    flex-basis: 50%;
+    flex-basis: 70%;
 }
 
 .menu-links{
@@ -81,7 +81,12 @@
     box-shadow: 1px 1px 5px .1px rgba(0, 0, 0, 0.199);
 }
 
+.menu-links li{
+    text-align: center;
+}
+
 .menu-links li a{
+    text-align: center;
     padding: 5px 30px;
     border-radius: 15px;
     margin: 5px 15px;
@@ -407,6 +412,7 @@ a{
     padding: var(--mg-15);
     padding-top: var(--mg-20);
     padding-bottom: var(--mg-5);
+    margin-top: 30px;
 }
 
 .footer__wrapper{

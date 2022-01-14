@@ -21,6 +21,8 @@ const blogPostRoutes = require("./Routes/blogPostRoutes");
 const commentRoutes = require("./Routes/commentRoutes");
 const likeRoutes = require("./Routes/likeRoutes");
 const userPanalRoutes = require("./Routes/userPanalRoutes");
+const createPostRoutes = require("./Routes/createPostRoutes");
+const allUsersRoutes = require("./Routes/allUsersRoutes");
 
 const cookieParser = require("cookie-parser");
 
@@ -65,6 +67,8 @@ app.use(blogPostRoutes);
 app.use(commentRoutes);
 app.use(likeRoutes);
 app.use(userPanalRoutes);
+app.use(createPostRoutes);
+app.use(allUsersRoutes);
 
 app.get("/", async(req, res)=>{
 
