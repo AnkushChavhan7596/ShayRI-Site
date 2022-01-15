@@ -23,6 +23,7 @@ const likeRoutes = require("./Routes/likeRoutes");
 const userPanalRoutes = require("./Routes/userPanalRoutes");
 const createPostRoutes = require("./Routes/createPostRoutes");
 const allUsersRoutes = require("./Routes/allUsersRoutes");
+const allParticularPostsRoutes = require("./Routes/allParticularPostsRoutes");
 
 const cookieParser = require("cookie-parser");
 
@@ -70,6 +71,7 @@ app.use(likeRoutes);
 app.use(userPanalRoutes);
 app.use(createPostRoutes);
 app.use(allUsersRoutes);
+app.use(allParticularPostsRoutes);
 
 app.get("/", async(req, res)=>{
 
