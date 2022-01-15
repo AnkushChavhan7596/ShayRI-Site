@@ -6,7 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  
+   
+    <!-- swiper js -->
+    <link
+    rel="stylesheet"
+    href="https://unpkg.com/swiper@7/swiper-bundle.min.css"
+  />
+
+
     <link rel="stylesheet" href="./css/home.css">
 
 </head>
@@ -26,6 +33,7 @@
                     <li><a href="/userPanal">Userpanal</a></li>
                     <li><a href="/all_users">All Users</a></li>
                    <li><a href="/get_create_post">Create Post</a></li>
+                   <li><a href="#testimonial__section">Testimonial</a></li>
 
                    <%if(login){ %>
                     <li><a href="/logout">Logout</a></li>
@@ -57,8 +65,8 @@
                   </div>
 
                   <div class="buttons">
-                      <a href="#Create_Post">Explore</a>
-                      <a href="#">About Us</a>
+                      <a href="/blogs">Explore</a>
+                      <a href="#footer">About Us</a>
                   </div>
             </div>
 
@@ -70,52 +78,6 @@
         </div>
 
     </section>
-
-
-
-    <!-- ============= Blog Section ============ -->
-    <!-- <section class="Create__Post" id="Create_Post">
-      
-
-
-        <div class="create__post__section">
-
-            <div class="main__title">
-                <h2>Create Posts </h2>
-                <p>Share your thoughts with the entire world. </p>
-            </div>
-
-            <form action="/post_blog" method="POST">
-                <div class="info__label">
-
-                    <div class="img__cont">
-                        <img src="./images/pngwing.com (2).png" alt="">
-                    </div>
-
-                    <div class="name">
-                        <h2><%= (login)? user.full_name : "Your Name " %></h2>
-                    </div>
-                </div>
-
-
-                <div class="input_post_cont">
-                    <textarea cols="30" rows="7" placeholder="Enter Something ...." name="blog" required></textarea>
-                </div>
-
-                <div class="background_img_field">
-                    <label for="#">Background image<br></label>
-                    <input type="file" name="backgroundBlogImg">
-                </div>
-
-                <div class="post__btn">
-                     <button type="submit">Post</button>
-                </div>
-            </form>
-
-        </div>
-
-    </section> -->
-
 
 
 
@@ -234,8 +196,74 @@
 
 
 
+
+
+
+
+    <section class="testimonial__section" id="testimonial__section">
+
+        <div class="section__titile">
+            <h2>Testimonial</h2>
+            <p>Feedbacks from the visitors lorem lorem lorem loerm</p>
+        </div>
+
+        <!-- Swiper -->
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+
+
+                <% for(let i= 0; i<feedbacks.length ; i++){ %>
+                    <div class="swiper-slide">
+                        <div class="testimonial__box">
+                            <div class="quote">
+                                <i class="fas fa-quote-right right__quote"></i>
+                            </div>
+    
+                            <div class="content">
+                               <p>
+                                  <%= feedbacks[i].feedback %>
+                                </p>
+                            </div>
+    
+                            <div class="rating____div">
+                                <p><i class="fas fa-star rating_star"></i> <%= feedbacks[i].rating %></p>
+                            </div>
+    
+                            <div class="details">
+                                <div class="imgBox">
+                                    <img src="./photo-1494790108377-be9c29b29330.jpg" alt="">
+                                </div>
+    
+                                <h3> 
+                                  <%= feedbacks[i].senderName %>
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+             <% } %>
+               
+
+
+
+             
+                
+            </div>
+
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+    
+
+
+
+
+
+
+
+
+
     <!-- ===================== Footer ======================= -->
-    <footer class="footer">
+    <footer class="footer" id="footer">
 
         <div class="footer__wrapper">
 
@@ -253,9 +281,9 @@
                  </div>
 
                  <div class="details__para__footer">
-                     <p>This is the blog site ,
-                        here you can post the blog 
-                        and can see the people blog.</p>
+                     <p>This is the Shayri site ,
+                        here you can post the shayri, poems 
+                        and also can see the peoples shayries.</p>
                  </div>
 
                  <div class="personal__details__footer">
@@ -364,6 +392,7 @@
  
 
 
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
 
     <script src="./js/home.js"></script>
 </body>

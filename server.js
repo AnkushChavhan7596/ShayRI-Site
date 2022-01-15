@@ -38,8 +38,9 @@ const database = require("./src/db/database");
 // ================= Models =========================
 const userRegisterModel = require("./src/models/userRegisterModel");
 const blogPostModel = require("./src/models/blogPostModel");
-const likeModel = require("./src/models/likeModel");
-const req = require("express/lib/request");
+const feedbackModel = require("./src/models/feedbackModel");
+// const likeModel = require("./src/models/likeModel");
+// const req = require("express/lib/request");
 
 
 
@@ -84,19 +85,31 @@ app.get("/", async(req, res)=>{
         const blogs = await blogPostModel.find();
 
         if(!blogs) throw Error("Something wents wrong");
+
+        const feedbacks = await feedbackModel.find();
+
+        if(!feedbacks) throw Error("Something wents wrong");
    
         res.render("home",{
             "user" : user,
             "blogs" : blogs,
-            "login" : true
+            "feedbacks" : feedbacks,
+            "login" : true,
         });
     }
     else{
         const blogs = await blogPostModel.find();
 
+        
+        const feedbacks = await feedbackModel.find();
+
+        if(!feedbacks) throw Error("Something wents wrong");
+
         res.render("home",{
             "login" : false,
-            "blogs" : blogs
+            "blogs" : blogs,
+            "feedbacks" : feedbacks
+
         });
     }
 

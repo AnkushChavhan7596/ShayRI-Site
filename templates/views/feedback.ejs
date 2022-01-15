@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Profile</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="./css/profileDetails.css">
+    <link rel="stylesheet" href="./css/feedback.css">
 </head>
 
 <body>
@@ -60,39 +60,39 @@
 
                 <div class="posts-container">
                     
-                    <section class="profile_details_wrapper">
-                           <div class="left">
-                                   <div class="section-heading">
-                                       <h2>Profile : </h2>
-                                   </div>
+                    <section class="edit_profile_wrapper">
+                            <div class="left">
+                                    <h2 class="section-heading">Give Feedback To Our Site</h2>
+                            
+                                    <form action="/post_feedback/<%= currentUser.id %>" method="POST">
+                                          
+                                           <div class="input__field">
+                                                <label for="rating">Rating : </label>
+                                                <select name="rating" id="rating">
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                    <option value="5">5</option>
+                                                  </select>
+                                            </div>
 
-                                   <div class="name profile_field">
-                                       <p>Name : <%= currentUser.full_name %> </p>
-                                   </div>
+                                            <div class="input__field">
+                                                <label for="#">Enter Feedback : </label>
+                                               <textarea name="feedback"  cols="30" rows="6" placeholder="Enter your feedback ....."></textarea>
+                                            </div>
 
-                                   <div class="email profile_field">
-                                     <p>Email : <%= currentUser.email %> </p>
-                                  </div>
+                                            
+                            
+                        
+                            
+                                            <div class="button__cont">
+                                                <button type="submit">Send Feedback</button>
+                                            </div>
+                                    </form>
+                            
+                            </div>
 
-                                  <div class="mobile profile_field">
-                                    <p>mobile : <%= currentUser.mobile %></p>
-                                 </div>
-
-                                 <div class="date profile_field">
-                                    <p>Date of Joining : <%= currentUser.date_of_joining %> </p>
-                                 </div>
-
-
-                                 <div class=" profile_field">
-                                    <p>Number of Posts : <%= numberOfPosts %> </p>
-                                 </div>
-                           </div>
-
-                           <div class="right">
-                                 <div class="profile__img">
-                                     <img src="./images/pngwing.com (3).png" alt="">
-                                 </div>
-                           </div>
                     </section>
 
 
@@ -101,6 +101,8 @@
          </div>
     </section>
     
+
+        
     <div class="overlay"></div>
 
     <script>
@@ -120,6 +122,7 @@
         
 
     </script>
+
 
 </body>
 </html>
