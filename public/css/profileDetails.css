@@ -192,8 +192,10 @@ p{
     justify-content: flex-start;
 }
 .main-panal .navbar .profile-pic img{
-    width: 45px;
-    height: 45px;
+    width: 60px;
+    height: 60px;
+    border: 2px solid gray;
+    border-radius: 50%;
 }
 
 

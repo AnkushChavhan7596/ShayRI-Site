@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image upload</title>
+
+    <style>
+
+            @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+            *{
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+                font-family: 'Poppins', sans-serif;
+            }
+
+
+        .wrapper{
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .main_wrapper{
+            width: 500px;
+            padding: 20px 10px;
+            border-radius: 10px;
+            box-shadow: 1px 1px 5px .1px rgba(0, 0, 0, 0.39);
+        }
+
+        .input__filed{
+            text-align: center;
+        }
+
+      label{
+          display: block;
+          font-weight: 500;
+          margin: 5px;
+          text-align: left;
+          padding: 5px 20px;
+      }
+
+        .heading{
+            text-align: center;
+            font-weight: 600;
+            padding: 20px 0;
+        }
+
+         .btn_wrapper{
+             padding: 10px 0;
+             text-align: center;
+         }
+
+        .submit_btn{
+            padding: 5px 30px;
+            border: none;
+            outline: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 600;
+            color: white;
+            margin: 10px auto;
+            text-align: center;
+            background-color: rgb(2, 151, 189);
+            box-shadow: 1px 1px 5px .1px rgba(0, 0, 0, 0.425);
+            cursor: pointer;
+        }
+
+
+    </style>
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <div class="main_wrapper">
+            <h2 class="heading">Upload Images</h2>
+            <form action="/profilePic" method="POST" enctype="multipart/form-data">
+                <div class="input__filed">
+                    <label for="">Choose profile image :</label>
+                    <input type="file" name="image">
+                </div>
+                <div class=btn_wrapper>
+                    <input class="submit_btn" type="submit">
+                </div>
+            </form>
+        </div>
+    </div>
+   
+</body>
+</html>

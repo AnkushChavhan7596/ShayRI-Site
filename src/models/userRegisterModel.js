@@ -39,6 +39,11 @@ const userSchema = new mongoose.Schema({
         required : false,
         default : `${day}/${month}/${year}`
 
+    },
+    profilePic : {
+        type : String,
+        default : "./images/profile.png",
+        required : false
     }
 });
 

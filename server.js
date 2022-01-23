@@ -11,8 +11,8 @@ const app = express();
 const path = require("path");
 
 const ejs = require("ejs");
-
 const multer = require("multer");
+
 
 const port = process.env.PORT || 8000;
 
@@ -28,6 +28,7 @@ const allParticularPostsRoutes = require("./Routes/allParticularPostsRoutes");
 const cookieParser = require("cookie-parser");
 
 const verifyAuth = require("./Middleware/verifyAuth");
+const imageUpload = require("./Middleware/imageUpload");
 
 
 
@@ -183,6 +184,46 @@ app.get("/userPanal", verifyAuth, async(req, res)=>{
         res.redirect("/login");
     }
 });
+
+// profile pic
+let picName;
+
+const storage = multer.diskStorage({
+    destination : (req, file, cb)=>{
+        cb(null, './public/images')
+    },
+    filename : (req, file, cb)=>{
+        console.log(file);
+        cb(null, Date.now() + path.extname(file.originalname))
+        picName = Date.now() + path.extname(file.originalname)
+    }
+})
+
+const upload = multer({ storage : storage})
+
+
+
+
+app.set("view engine", "ejs");
+
+app.get("/profilePic", (req, res)=>{
+    res.render("profilePic");
+})
+
+app.post("/profilePic", upload.single("image") ,async (req, res)=>{
+    const token = await req.cookies.jwt;
+    
+    if(token){
+        const getUser = jwt.verify(token, process.env.SECRETKEY);
+        console.log(getUser);
+
+        const user = await userRegisterModel.findByIdAndUpdate(getUser.id,{
+            profilePic : picName
+        });
+
+        res.redirect("/userPanal");
+    }
+})
 
 
 

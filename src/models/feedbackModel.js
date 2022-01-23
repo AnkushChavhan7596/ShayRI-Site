@@ -12,6 +12,11 @@ const feedbackSchema = new mongoose.Schema({
     senderName : {
         type : String,
         required : true
+    },
+    profilePic : {
+        type : String,
+        default : "./images/profile.png",
+        required : false
     }
 });
 
